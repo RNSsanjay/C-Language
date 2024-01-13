@@ -1,0 +1,274 @@
+#include<iostream>
+#include<string>  
+
+using namespace std;
+
+class ContactInfo {
+public:
+    string phone;  
+    int dat, mon, yea,age;
+    char name[20], init[5], em[50], lk[50],gender[10];
+
+  
+    void Name() {
+        cout << "\nName:" << name << " " << init;
+    }
+    void DOB() {
+        cout << "\nDate of Birth:" << dat << "/" << mon << "/" << yea;
+    }
+    void Age(){
+        cout <<"\nAge:"<<age;
+    }
+    void Gender(){
+        cout<<"\nGender:"<<gender;
+    }
+    void phoneNo() {
+       
+        if (phone.length() == 10) {
+            cout << "\nPhone Number:" << phone;
+        } else {
+            cout << "\nInvalid Phone Number. Please enter a 10-digit number.";
+        }
+    }
+    void email() {
+        cout << "\nE-Mail:" << em;
+    }
+    void LK() {
+        cout << "\nLinked-In Link:" << lk;
+    }
+    
+};
+
+class Objective {
+public:
+    char goal[80], arch[80];
+
+    
+    void Goal() {
+        cout << "\nGoal to Archive:" << goal;
+    }
+    void archive() {
+        cout << "\nGoals Archived:" << arch;
+    }
+};
+
+class Education{
+    public:
+    int grp;
+    char schname[100],colname[100],schtname[100],deg[10],bran[20],deplaname[100],deplacour[50];
+    double tenmark,twalmark,elemarks,tenthcutoff,twelthcutoff,eleventhcutoff,deplapercent;
+    string grop;
+
+    void School(){
+        cout<<"\nSSLC Complited School Name:"<<schname;
+        cout<<"\nHSC Complited School Name:"<<schtname;
+    }
+    void Marksone(){
+        cout<<"\n10th Marks Schored:"<<tenmark;
+        cout<<"\nCutOff Marks of 10th Result:"<<tenthcutoff;
+    }
+    void Markstwo(){
+        cout<<"\nGroup Choised in 11 and 12:"<<grop;
+        cout<<"\n11th Marks Schored:"<<elemarks;
+        cout<<"\n12th Marks Schored:"<<twalmark;
+        cout<<"\nCutoff Marks of 11th Result:"<<eleventhcutoff;
+        cout<<"\nCutoff Marks of 12th Result:"<<twelthcutoff;
+    }
+   void College(){
+       cout<<"\nName of the College:"<<colname;
+       cout<<"\nDegree:"<<deg;
+       cout<<"\nBranch in the Degree:"<<bran;
+   } 
+  void Deplamo(){
+       cout<<"\nName of the College:"<<deplaname;
+       cout<<"\nName of the Course:"<<deplacour;
+       cout<<"\nPercentage Schored in the deplamo:"<<deplapercent;
+  }
+};
+
+int main() {
+   
+    ContactInfo COobj;
+    cout << "\nEnter Your Name:";
+    cin >> COobj.name;
+    cout << "\nEnter Your Initial of Your Name:";
+    cin >> COobj.init;
+    cout << "\nEnter the Date of Your Date of Birth:";
+    cin >> COobj.dat;
+    cout << "\nEnter the Month of Your Date of Birth:";
+    cin >> COobj.mon;
+    cout << "\nEnter the Year of Your Date of Birth:";
+    cin >> COobj.yea;
+    cout<<"\n Enter your Age:";
+    cin>>COobj.age;
+    int optiongender;
+    cout<<"\nEnter Your Gender(Male=>1,Female=>2,Others=>3):";
+    cin>>optiongender;
+   if(optiongender==1){
+    COobj.gender=="Male";
+   }
+   else if(optiongender==2){
+     COobj.gender=="Female";
+   }
+   else if(optiongender==3){
+    COobj.gender=="Others";
+   }
+   else{
+    cout<<"\nInput Invalid.Please a Valid Input";
+   }
+    do {
+        cout << "\nEnter Your Phone Number (10 digits):";
+        cin >> COobj.phone;
+
+       
+        if (COobj.phone.length() != 10) {
+            cout << "\nInvalid Phone Number. Please enter a 10-digit number.";
+        }
+    } while (COobj.phone.length() != 10);
+
+    cout << "\nEnter Your E-Mail Id:";
+    cin >> COobj.em;
+    cout << "\nEnter Your Linked-In Link:";
+    cin >> COobj.lk;
+   
+
+    Objective OBobj;
+    cout << "\nEnter Your Goals to be Archived:";
+    cin.ignore();
+    cin.getline(OBobj.goal, 80);
+    cout << "\nEnter Your Goals Archived:";
+    cin.getline(OBobj.arch, 80);
+    
+
+    Education edobj;
+    if(COobj.age >= 17 && COobj.age>15){
+      cout<<"\nEnter your SSLC Completed School Name:";
+      cin>>edobj.schname;
+      cout<<"\nEnter your 10th Marks Schored:";
+      cin>>edobj.tenmark;
+      if(edobj.tenmark>500){
+        cout<<"\nInvalid Input[The Entered input is not Applicable.]";
+      }
+      else{
+      cout<<"\nEnter the Group You Studied in 11th & 12th(Maths/CS=1,Arts/Commerce=2,Bio/Maths=3,Zio/Maths=4)or Deplamo=5:";
+      cin>>edobj.grp;
+
+
+      /*Chosing the Group*/
+      if(edobj.grp==1){
+         edobj.grop="Maths and Computer Science.";
+      }
+      else if (edobj.grp==2)
+      {
+        edobj.grop="Arts and Commerce.";
+      }
+      else if(edobj.grp==3)
+      {
+        edobj.grop="Biology and Maths";
+      }
+      else if(edobj.grp==4){
+        edobj.grop="Ziology and Maths";
+      }
+      else if(edobj.grp==5){
+        edobj.grop="Deplamo College";
+      }
+      else{
+        cout<<"\nInvalid Input";
+      }
+      /*Finished the grop Assigned & for deplamo*/
+      if(edobj.grp==5){
+         cout<<"\nEnter the College Name of Deplamo Study:";
+         cin>>edobj.deplaname;
+         cout<<"\nEnter the Course Choised in the college:";
+         cin>>edobj.deplacour;
+         cout<<"\nEnter the percentage Schored in the Whole Sem College Study:";
+         cin>>edobj.deplapercent;
+      }
+      else{
+      cout<<"\nEnter your HSC Completed School Name:";
+      cin>>edobj.schtname;
+      cout<<"\nEnter your 11th Marks Schored:";
+      cin>>edobj.elemarks;
+      if(edobj.elemarks>600){
+        cout<<"\nInvalid Input";
+      }
+      cout<<"\nEnter your 12th Marks Schored:";
+      cin>>edobj.twalmark;
+      if(edobj.twalmark>600){
+        cout<<"\nInvalid Input";
+      }
+      cout<<"\nEnter your CutOff Schored in 10th:";
+      cin>>edobj.tenthcutoff;
+      if(edobj.tenthcutoff>200){
+        cout<<"\nInvalid Input";
+      }
+      cout<<"\nEnter your Cutoff Schored in 11th:";
+      cin>>edobj.eleventhcutoff;
+      cout<<"\nEnter your Cutoff Schored in 12th:";
+      cin>>edobj.twelthcutoff;
+      if(edobj.twelthcutoff>200){
+        cout<<"\nInvalid Input";
+      }
+      int optionOne;
+      cout<<"\nEnter You are continuing your Higher Studies(Yes=1,No=2):";
+      cin>>optionOne;
+      if(optionOne==1 && COobj.age>=17){
+      cout<<"\nEnter Your College Name:";
+      cin>>edobj.colname;
+      cout<<"\nEnter Your Degree(Ex:B.Tech):";
+      cin>>edobj.deg;
+      cout<<"\nEnter Your Branch in the Degree:";
+      cin>>edobj.bran;
+      /*output:if(1)*/
+      }
+      else if(optionOne==2){
+        cout<<"Thanks For Contacting us";
+      }
+      else{
+        cout<<"Invalid Input";
+      }
+      
+    }
+    }
+    }
+    cout << "\n-----------------------------------------------------------------------------------------------------------------------";
+    cout << "\n                                                       YOUR RESUME                                                     ";
+    cout << "\n_______________________________________________________________________________________________________________________";
+    cout << "\n                                     ---------------Contact Information---------------                                 ";
+     /*Output:1*/
+    COobj.Name();
+    COobj.DOB();
+    COobj.Age();
+    COobj.Gender();
+    COobj.phoneNo();
+    COobj.email();
+    COobj.LK();
+ /*output:2*/
+    cout << "\n                                     --------------------Objective-------------------                                 ";
+    OBobj.Goal();
+    OBobj.archive();
+    cout<<"\n                                  ------------------------Education------------------------                           ";
+    if(COobj.age >= 17){
+    edobj.School();
+      edobj.Marksone();
+      if(edobj.grp==5){
+        edobj.Deplamo();
+      }
+      else{
+        edobj.Markstwo();
+        edobj.College();
+      }
+    }    
+    if(COobj.age <18 && COobj.age>15){
+    edobj.School();
+    edobj.Marksone();
+    }
+    
+    
+    cout << "\n-----------------------------------------------------------------------------------------------------------------------";
+    cout << "\n                                                       Thank You                                                       ";
+    cout << "\n-----------------------------------------------------------------------------------------------------------------------";
+
+    return 0;
+}
+
